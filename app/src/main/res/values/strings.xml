@@ -1,10 +1,13 @@
 <resources>
-    <string name="app_name">Pokedex</string>
+    <string name="app_name">Pokedex Christián Meza</string>
     <string name="search">Búscar Pokemón</string>
     <string name="pokemon_label_tipo">Tipo</string>
     <string name="pokemon_label_ataque">Ataques</string>
     <string name="pokemon_label_habilidad">Habilidad</string>
     <string name="pokemon_label_ubicacion">Ubicaciones</string>
     <string name="pokemon_label_evolucion">Evolución</string>
-
+    <string name="pokemon_menu_shiny">Ver su forma Shiny</string>
+    <string name="app_close">¿Seguro que quieres salir?</string>
+    <string name="global_no">No</string>
+    <string name="global_si">Sí</string>
 </resources>

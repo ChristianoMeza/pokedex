@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    android:focusable="false"
+    android:focusableInTouchMode="false"
+    android:descendantFocusability="beforeDescendants"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -7,7 +11,6 @@
         <variable
             name="pokemon"
             type="cmeza.pokedex.models.PokemonResult" />
-
         <variable
             name="TipoPokemon"
             type="String" />
@@ -73,7 +76,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:barrierDirection="bottom"
-                    app:constraint_referenced_ids="ivPokemon" />
+                    app:constraint_referenced_ids="btnMenu1" />
 
                 <androidx.constraintlayout.widget.Guideline
                     android:layout_width="wrap_content"
@@ -82,7 +85,20 @@
                     app:layout_constraintGuide_percent="0.4"
                     android:orientation="vertical"/>
 
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnMenu1"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/pokemon_red"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+                    app:layout_constraintStart_toEndOf="@+id/guidelineStart"
+                    app:layout_constraintTop_toBottomOf="@+id/ivPokemon"
+                    android:text="@string/pokemon_menu_shiny"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_marginTop="20dp"
                     android:text="@string/pokemon_label_tipo"
                     android:textColor="@color/pokemon_red"
                     android:textStyle="bold"
@@ -96,6 +112,7 @@
                     android:layout_height="wrap_content"/>
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_marginTop="20dp"
                     tools:text="YERBA\nFUEGO"
                     android:text="@{TipoPokemon}"
                     android:textAllCaps="true"

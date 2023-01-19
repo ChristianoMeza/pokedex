@@ -10,10 +10,13 @@ class PokemonGridLayoutManager(
     defStyleAttr: Int,
     defStyleRes: Int
 ) : GridLayoutManager(context, attrs, defStyleAttr, defStyleRes) {
+
     override fun supportsPredictiveItemAnimations(): Boolean {
         return false
     }
+
     override fun setSpanCount(spanCount: Int) {
-        super.setSpanCount(4)
+        super.setSpanCount(3)
     }
+
 }

@@ -5,6 +5,7 @@ data class Pokemon(
 )
 
 data class PokemonResult(
+    val id: Int,
     val name: String,
     val url : String,
     val imgUrl : String,
@@ -14,15 +15,18 @@ data class PokemonResult(
 
 data class PokemonDetail(
     val abilities: ArrayList<Abilities>,
+    val sprites: Sprites,
     var locations: List<Ubicacion>,
     var evolutions: Evolucion,
-    val id: Int,
     val height: Int,
     val location_area_encounters: String,
     val moves: ArrayList<Moves>,
     val types: ArrayList<Types>
 )
 
+data class Sprites(
+    val front_shiny: String
+)
 
 data class Ubicacion(
     val location_area: NameUrl

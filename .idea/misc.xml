@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Christian Meza/Documents/AndroidProjects/pokedex/app/src/main/res/drawable/bottom_sheet_dialog.xml" value="0.154" />
         <entry key="..\:/Users/Christian Meza/Documents/AndroidProjects/pokedex/app/src/main/res/layout/activity_main.xml" value="0.17083333333333334" />
         <entry key="..\:/Users/Christian Meza/Documents/AndroidProjects/pokedex/app/src/main/res/layout/fragment_detail.xml" value="0.25" />
         <entry key="..\:/Users/Christian Meza/Documents/AndroidProjects/pokedex/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/Christian Meza/Documents/AndroidProjects/pokedex/app/src/main/res/layout/fragment_menu_1_shiny_species.xml" value="0.20625" />
         <entry key="..\:/Users/Christian Meza/Documents/AndroidProjects/pokedex/app/src/main/res/layout/widget_cell.xml" value="0.25" />
         <entry key="..\:/Users/Christian Meza/Documents/AndroidProjects/pokedex/app/src/main/res/layout/widget_loading.xml" value="0.25" />
         <entry key="..\:/Users/Christian Meza/Documents/AndroidProjects/pokedex/app/src/main/res/menu/menu_main.xml" value="0.25" />

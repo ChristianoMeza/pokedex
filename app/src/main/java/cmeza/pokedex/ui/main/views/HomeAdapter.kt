@@ -53,7 +53,7 @@ class HomeAdapter (val list: List<PokemonResult>, val event: MainInterfaces) : R
             override fun publishResults(charSequence: CharSequence, filterResults: FilterResults) {
                 mFilter = filterResults.values as List<PokemonResult>
                 if (mFilter.size != list.size){
-                    notifyDataSetChanged()
+                    notifyItemRangeInserted(0, mFilter.size)
                 }
             }
         }

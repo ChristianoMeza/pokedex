@@ -1,15 +1,13 @@
 package cmeza.pokedex.ui.main.views
 
+
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.NavHostFragment
-import cmeza.pokedex.R
 import cmeza.pokedex.core.widgets.WidgetLoading
 import cmeza.pokedex.databinding.FragmentDetailBinding
 import cmeza.pokedex.models.Abilities
@@ -19,6 +17,7 @@ import cmeza.pokedex.models.Ubicacion
 import cmeza.pokedex.ui.main.android.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
 class FragmentDetail: Fragment() {
 
@@ -26,6 +25,7 @@ class FragmentDetail: Fragment() {
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
     private lateinit var loading: WidgetLoading
+    private lateinit var menu1: FragmentDialogMenu1Sprites
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,12 +36,19 @@ class FragmentDetail: Fragment() {
         loading = WidgetLoading(requireContext())
         loading.Create()
 
+        menu1 = FragmentDialogMenu1Sprites()
+
         binding.apply {
             ubicacionPokemon = " - "
             tipoPokemon = " - "
             ataquePokemon = " - "
             habilidadPokemon = " - "
             evolucionPokemon = " - "
+
+            btnMenu1.setOnClickListener {
+                menu1.show(childFragmentManager, "SHINY_MENU")
+            }
+
         }
 
         val view = binding.root
@@ -50,14 +57,22 @@ class FragmentDetail: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         viewModel.observePokemonDetail.observe(viewLifecycleOwner){
             if (it!=null){
                 binding.pokemon = it
                 binding.tipoPokemon = crearStringTipos(it.detail!!.types)
                 binding.ataquePokemon = crearStringAtaques(it.detail!!.moves)
                 binding.habilidadPokemon = crearStringHabilidad(it.detail!!.abilities)
-                binding.ubicacionPokemon = crearStringUbicacion(it.detail!!.locations)
-                binding.evolucionPokemon = it.detail!!.evolutions.chain.evolves_to[0].species.name
+
+                if (it.detail!!.locations!=null){
+                    binding.ubicacionPokemon = crearStringUbicacion(it.detail!!.locations)
+                }
+
+                if (it.detail!!.evolutions != null){
+                    binding.evolucionPokemon = it.detail!!.evolutions.chain.evolves_to[0].species.name
+                }
+
             }
         }
 
@@ -73,6 +88,11 @@ class FragmentDetail: Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    /*override fun onPrepareOptionsMenu(menu: Menu) {
+        val item: MenuItem = menu.findItem(R.id.action_search)
+        item.isVisible = false
+    }*/
 
     companion object{
         val TAG = "detailFragment"

@@ -1,5 +1,8 @@
 package cmeza.pokedex.di.modules
 
+import android.app.Application
+import android.content.Context
+import cmeza.pokedex.core.storage.StorageManager
 import cmeza.pokedex.repository.PokemonRepository
 import cmeza.pokedex.repository.PokemonRepositoryImpl
 import dagger.Module

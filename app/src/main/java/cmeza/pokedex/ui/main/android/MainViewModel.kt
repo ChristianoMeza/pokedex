@@ -1,34 +1,41 @@
 package cmeza.pokedex.ui.main.android
 
+import android.content.Context
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import cmeza.pokedex.models.*
+import cmeza.pokedex.core.server.ServerFailure
+import cmeza.pokedex.models.PokemonResult
 import cmeza.pokedex.repository.PokemonRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(private val pokemonRepository: PokemonRepository) : ViewModel() {
+class MainViewModel @Inject constructor(private val pokemonRepository: PokemonRepository, @ApplicationContext val context: Context) : ViewModel() {
     val observePokemons: LiveData<List<PokemonResult>> = pokemonRepository.obtenerPokelist()
 
     init {
         loadPokemons()
     }
     private fun loadPokemons() {
-        pokemonRepository.solicitarPokelist()
+        pokemonRepository.solicitarPokelist(context)
     }
-
-    fun filterInPokemonList(str: String){
-        pokemonRepository.filtrarPokemon(str)
-    }
-    val observeFilterPokemon: MutableLiveData<String> = pokemonRepository.obtenerPokemon()
 
     fun getPokemonDetail(pk: PokemonResult){
-        pokemonRepository.solicitarInfoPokemon(pk)
+        pokemonRepository.solicitarInfoPokemon(pk, context)
     }
     fun resetPokemonDetail(){
         pokemonRepository.resetDatosPokemon()
     }
     val observePokemonDetail: LiveData<PokemonResult?> = pokemonRepository.obtenerInfoPokemon()
+
+    val observePokemonErrorList: LiveData<ServerFailure?> = pokemonRepository.obtenerPokeListError()
+    val observePokemonErrorDetail: LiveData<ServerFailure?> = pokemonRepository.obtenerPokeDetailError()
+
+    fun resetPokeListError(){
+        pokemonRepository.resetPokeListError()
+    }
+    fun resetPokeDetailError(){
+        pokemonRepository.resetPokeDetailError()
+    }
 }
