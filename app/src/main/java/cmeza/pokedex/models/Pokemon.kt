@@ -7,20 +7,30 @@ data class Pokemon(
 data class PokemonResult(
     val name: String,
     val url : String,
-    val imgUrl : String
+    val imgUrl : String,
+    val evolutionUrl: String,
+    var detail: PokemonDetail?
 )
 
-data class ResultDetail(
+data class PokemonDetail(
     val abilities: ArrayList<Abilities>,
+    var locations: List<Ubicacion>,
+    var evolutions: Evolucion,
     val id: Int,
     val height: Int,
     val location_area_encounters: String,
     val moves: ArrayList<Moves>,
-    val types: ArrayList<Types>,
-    val species: NameUrl,
-    val chain: Chain?
+    val types: ArrayList<Types>
 )
 
+
+data class Ubicacion(
+    val location_area: NameUrl
+)
+
+data class Evolucion(
+    val chain: Chain
+)
 data class Chain(
     val evolves_to: ArrayList<EvolvesTo>
 )
@@ -34,18 +44,13 @@ data class Moves(
 
 data class Types(
     val slot: Int,
-    val types: ArrayList<NameUrl>
+    val type: NameUrl
 )
 
 data class Abilities(
-    val ability: Ability,
+    val ability: NameUrl,
     val is_hidden: Boolean,
     val slot: Int
-)
-
-data class Ability(
-    val name: String,
-    val url: String
 )
 
 data class NameUrl(

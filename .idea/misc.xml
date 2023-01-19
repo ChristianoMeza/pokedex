@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Christian Meza/Documents/AndroidProjects/pokedex/app/src/main/res/layout/activity_main.xml" value="0.17083333333333334" />
+        <entry key="..\:/Users/Christian Meza/Documents/AndroidProjects/pokedex/app/src/main/res/layout/fragment_detail.xml" value="0.25" />
+        <entry key="..\:/Users/Christian Meza/Documents/AndroidProjects/pokedex/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/Christian Meza/Documents/AndroidProjects/pokedex/app/src/main/res/layout/widget_cell.xml" value="0.25" />
+        <entry key="..\:/Users/Christian Meza/Documents/AndroidProjects/pokedex/app/src/main/res/layout/widget_loading.xml" value="0.25" />
+        <entry key="..\:/Users/Christian Meza/Documents/AndroidProjects/pokedex/app/src/main/res/menu/menu_main.xml" value="0.25" />
         <entry key="..\:/Users/Christian Meza/Documents/Pokedex/app/src/main/res/layout/activity_main.xml" value="0.11865942028985507" />
         <entry key="..\:/Users/Christian Meza/Documents/Pokedex/app/src/main/res/layout/fragment_home.xml" value="0.2203125" />
         <entry key="..\:/Users/Christian Meza/Documents/Pokedex/app/src/main/res/layout/widget_cell.xml" value="0.12760416666666666" />

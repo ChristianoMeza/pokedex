@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Pokedex</string>
+    <string name="search">Búscar Pokemón</string>
+    <string name="pokemon_label_tipo">Tipo</string>
+    <string name="pokemon_label_ataque">Ataques</string>
+    <string name="pokemon_label_habilidad">Habilidad</string>
+    <string name="pokemon_label_ubicacion">Ubicaciones</string>
+    <string name="pokemon_label_evolucion">Evolución</string>
+
 </resources>

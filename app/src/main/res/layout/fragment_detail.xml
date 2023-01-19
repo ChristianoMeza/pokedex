@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="pokemon"
+            type="cmeza.pokedex.models.PokemonResult" />
+
+        <variable
+            name="TipoPokemon"
+            type="String" />
+        <variable
+            name="AtaquePokemon"
+            type="String" />
+        <variable
+            name="HabilidadPokemon"
+            type="String" />
+        <variable
+            name="UbicacionPokemon"
+            type="String" />
+        <variable
+            name="EvolucionPokemon"
+            type="String" />
+    </data>
+
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/ivPokemon"
+                    app:pokemonImg="@{pokemon.imgUrl}"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/guidelineStart"
+                    app:layout_constraintGuide_percent="0.1"
+                    android:orientation="vertical"/>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/guidelineEnd"
+                    app:layout_constraintGuide_percent="0.9"
+                    android:orientation="vertical"/>
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/barrierImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="ivPokemon" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/guidelineCenter"
+                    app:layout_constraintGuide_percent="0.4"
+                    android:orientation="vertical"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:text="@string/pokemon_label_tipo"
+                    android:textColor="@color/pokemon_red"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:id="@+id/labelTipo"
+                    android:textAllCaps="true"
+                    app:layout_constraintEnd_toStartOf="@+id/guidelineCenter"
+                    app:layout_constraintStart_toEndOf="@+id/guidelineStart"
+                    app:layout_constraintTop_toBottomOf="@+id/barrierImg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    tools:text="YERBA\nFUEGO"
+                    android:text="@{TipoPokemon}"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:id="@+id/valueTipo"
+                    app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+                    app:layout_constraintStart_toEndOf="@+id/guidelineCenter"
+                    app:layout_constraintTop_toBottomOf="@+id/barrierImg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/barrier1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="labelTipo, valueTipo" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:text="@string/pokemon_label_habilidad"
+                    android:textColor="@color/pokemon_red"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:id="@+id/labelHabilidad"
+                    android:textAllCaps="true"
+                    app:layout_constraintEnd_toStartOf="@+id/guidelineCenter"
+                    app:layout_constraintStart_toEndOf="@+id/guidelineStart"
+                    app:layout_constraintTop_toBottomOf="@+id/barrier1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    tools:text="LATIGO SEPA\nCHORRO DE AGUA"
+                    android:text="@{HabilidadPokemon}"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:id="@+id/valueHabilidad"
+                    app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+                    app:layout_constraintStart_toEndOf="@+id/guidelineCenter"
+                    app:layout_constraintTop_toBottomOf="@+id/barrier1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/barrier2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="labelHabilidad, valueHabilidad" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:text="@string/pokemon_label_ubicacion"
+                    android:textColor="@color/pokemon_red"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:id="@+id/labelUbicacion"
+                    android:textAllCaps="true"
+                    app:layout_constraintEnd_toStartOf="@+id/guidelineCenter"
+                    app:layout_constraintStart_toEndOf="@+id/guidelineStart"
+                    app:layout_constraintTop_toBottomOf="@+id/barrier2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    tools:text="SANTIAGO\nCONCE"
+                    android:text="@{UbicacionPokemon}"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:id="@+id/valueUbicacion"
+                    app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+                    app:layout_constraintStart_toEndOf="@+id/guidelineCenter"
+                    app:layout_constraintTop_toBottomOf="@+id/barrier2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/barrier3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="labelUbicacion, valueUbicacion" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:text="@string/pokemon_label_evolucion"
+                    android:textColor="@color/pokemon_red"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:id="@+id/labelEvolucion"
+                    android:textAllCaps="true"
+                    app:layout_constraintEnd_toStartOf="@+id/guidelineCenter"
+                    app:layout_constraintStart_toEndOf="@+id/guidelineStart"
+                    app:layout_constraintTop_toBottomOf="@+id/barrier3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    tools:text="CHICORITA"
+                    android:text="@{EvolucionPokemon}"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:id="@+id/valueEvolucion"
+                    app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+                    app:layout_constraintStart_toEndOf="@+id/guidelineCenter"
+                    app:layout_constraintTop_toBottomOf="@+id/barrier3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/barrier4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="labelEvolucion, valueEvolucion" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:text="@string/pokemon_label_ataque"
+                    android:textColor="@color/pokemon_red"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:id="@+id/labelAtaque"
+                    android:textAllCaps="true"
+                    app:layout_constraintEnd_toStartOf="@+id/guidelineCenter"
+                    app:layout_constraintStart_toEndOf="@+id/guidelineStart"
+                    app:layout_constraintTop_toBottomOf="@+id/barrier4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    tools:text="LATIGO SEPA\nCHORRO DE AGUA"
+                    android:text="@{AtaquePokemon}"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:id="@+id/valueAtaque"
+                    app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+                    app:layout_constraintStart_toEndOf="@+id/guidelineCenter"
+                    app:layout_constraintTop_toBottomOf="@+id/barrier4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
