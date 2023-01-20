@@ -123,6 +123,7 @@ class FragmentHome: Fragment(), MainInterfaces {
                 loading.Close()
                 Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
                 viewModel.resetPokeDetailError()
+                isPokeClick = false
             }
         }
 
